@@ -125,6 +125,8 @@ public class Parser {
             case "event" : object = logEntity.getEvent(); break;
             case "taskId" : object = logEntity.getTaskId(); break;
             case "status" : object = logEntity.getStatus(); break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + field);
         }
         return object;
     }
