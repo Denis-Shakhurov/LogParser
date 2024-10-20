@@ -28,3 +28,7 @@ tasks.test {
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
+jacoco {
+    toolVersion = "0.8.11"
+    reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
+}
