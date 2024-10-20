@@ -2,7 +2,6 @@ package code;
 
 import picocli.CommandLine;
 
-import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "LogParses", mixinStandardHelpOptions = true, version = "logParser v 1.0",
@@ -16,7 +15,7 @@ public final class App implements Callable<String> {
     private String query;
 
     public String call() {
-        System.out.println(Parser.executor(Paths.get(pathDir), query));
+        System.out.println(Parser.executor(pathDir, query));
         return null;
     }
 

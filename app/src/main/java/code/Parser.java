@@ -1,6 +1,6 @@
 package code;
 
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -14,8 +14,8 @@ import static code.Utils.stringToDate;
 
 public class Parser {
 
-    public static Set<Object> executor(Path pathDir, String query) {
-        Data data = new Data(pathDir);
+    public static String executor(String pathDir, String query) {
+        Data data = new Data(Paths.get(pathDir));
         Set<Object> result = new HashSet<>();
         List<LogEntity> logEntityList = data.getLogEntityList();
         Map<String, String> fieldAndValue = getFieldAndValue(query);
@@ -69,7 +69,15 @@ public class Parser {
                         .collect(Collectors.toSet()));
             }
         }
-        return result;
+        StringBuilder sb = new StringBuilder("\n");
+        result.forEach(o -> {
+            if (o != null) {
+                sb.append(o.toString() + "\n");
+            } else {
+                System.out.println("Query not correct!");
+            }
+        });
+        return sb.toString();
     }
 
     private static Map<String, String> getFieldAndValue(String query) {

@@ -12,14 +12,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Data {
-    private List<LogEntity> logEntityList = new ArrayList<>();
     private static Path logDir;
 
-    public Data(Path pathDir) {
-        this.logDir = pathDir;
+    public Data(Path logDir) {
+        this.logDir = logDir;
     }
 
-    private static List<Path> getPaths() {
+    public static List<Path> getPaths() {
         List<Path> pathsFiles = new ArrayList<>();
         try {
             DirectoryStream<Path> paths = Files.newDirectoryStream(logDir, "*.{log}");
