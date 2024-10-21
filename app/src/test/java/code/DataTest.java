@@ -13,7 +13,7 @@ public class DataTest {
     private Data data = new Data(logDir);
 
     @Test
-    public void getLogEntityListTest() {
+    public void getLogEntityListTest() throws Exception {
         List<LogEntity> expected = data.getLogEntityList();
 
         assertTrue(!expected.isEmpty());
@@ -26,7 +26,7 @@ public class DataTest {
     }
 
     @Test
-    public void getDataForQueryEventTest() {
+    public void getDataForQueryEventTest() throws Exception {
         Set<Object> expected = data.getDataForQuery("get event");
 
         Set<Event> actual = Set.of(
@@ -41,7 +41,7 @@ public class DataTest {
     }
 
     @Test
-    public void getDataForQueryUserStatusTest() {
+    public void getDataForQueryUserStatusTest() throws Exception {
         Set<Object> expected = data.getDataForQuery("get status for user = \"Amigo\"");
 
         Set<Status> actual = Set.of(Status.OK);
