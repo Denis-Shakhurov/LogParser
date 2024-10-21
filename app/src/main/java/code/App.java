@@ -5,7 +5,7 @@ import picocli.CommandLine;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "LogParses", mixinStandardHelpOptions = true, version = "logParser v 1.0",
-        description = "Compares two configuration files and shows a difference.")
+        description = "Parse data for files log and show results query.")
 public final class App implements Callable<String> {
 
     @CommandLine.Parameters(paramLabel = "pathDir", description = "path to directory")
