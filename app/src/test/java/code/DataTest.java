@@ -48,4 +48,17 @@ public class DataTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void getDataForQueryWithBetweenDate() {
+        Set<Object> expected = data.getDataForQuery("get ip for event = \"solve_task\" " +
+                "and date between \"30.01.2014 12:56:22\" and \"29.2.2028 5:4:7\"");
+
+        Set<String> actual = Set.of(
+                "192.168.100.2",
+                "12.12.12.12"
+        );
+
+        assertEquals(expected, actual);
+    }
 }
