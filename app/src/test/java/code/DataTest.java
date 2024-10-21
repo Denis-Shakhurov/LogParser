@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DataTest {
-    private String logDir = "/app/src/test/resources";
+    private String logDir = "src/test/resources/";
     private Data data = new Data(logDir);
 
     @Test
