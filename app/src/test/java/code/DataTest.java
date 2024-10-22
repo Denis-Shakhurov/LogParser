@@ -61,4 +61,16 @@ public class DataTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void executorTest() {
+        String expected = Parser.executor(logDir, "get status");
+
+        String actual = "\n"
+                + "OK\n"
+                + "FAILED\n"
+                + "ERROR\n";
+
+        assertEquals(expected, actual);
+    }
 }

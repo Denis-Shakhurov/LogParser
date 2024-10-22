@@ -11,10 +11,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static code.Utils.dateBetweenDates;
@@ -84,7 +84,7 @@ public class Data {
     }
 
     public Set<Object> getDataForQuery(String query) {
-        Set<Object> result = new HashSet<>();
+        Set<Object> result = new TreeSet<>();
         List<LogEntity> logEntityList = getLogEntityList();
         Map<String, String> fieldAndValue = getFieldAndValue(query);
 
