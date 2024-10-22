@@ -1,12 +1,12 @@
 package code;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DataTest {
     private String logDir = "src/test/resources/";
@@ -72,5 +72,16 @@ public class DataTest {
                 + "ERROR\n";
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void executorWithNotCorrectQueryTest() {
+        Throwable exception = assertThrows(
+                IllegalStateException.class, () -> {
+                    Parser.executor(logDir, "get ..");
+                }
+        );
+
+        assertEquals(exception.getMessage(), "Unexpected value: ..");
     }
 }
